@@ -80,7 +80,7 @@ stringstream Miniatura::mostrarCliente(){
     out << "Material: " << material << endl;   
     out << "Precio: $" << precio << endl;
     if (disponible == false){
-        out << "Este producto no está disponible por el momento" << endl;
+        out << "Este producto no esta disponible por el momento" << endl;
     }
     return out;
 }
