@@ -90,7 +90,7 @@ stringstream Juego::mostrarCliente(){
     out << "Precio: $" << precio << endl;
     out << "Jugadores: " << minJugadores << " a " << maxJugadores << endl;
     if (disponible == false){
-        out << "Este producto no está disponible por el momento" << endl;
+        out << "Este producto no esta disponible por el momento" << endl;
     }
     return out;
 }
