@@ -87,10 +87,11 @@ stringstream Accesorio::mostrarCliente(){
         out << "Este producto se vende en paquete" << endl;
     }
     if (disponible == false){
-        out << "Este producto no está disponible por el momento" << endl;
+        out << "Este producto no esta disponible por el momento" << endl;
     }
     return out;
 }
 
 
+#endif
 #endif
