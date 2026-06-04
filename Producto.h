@@ -31,8 +31,8 @@ class Producto{
         int getCantidad();
         bool getDisponible();
         
-        virtual stringstream mostrarAdmin();
-        virtual stringstream mostrarCliente();
+        virtual stringstream mostrarAdmin() = 0;
+        virtual stringstream mostrarCliente() = 0;
 };
 
 
@@ -84,25 +84,6 @@ int Producto::getCantidad(){
 
 bool Producto::getDisponible(){
     return disponible;
-}
-
-stringstream Producto::mostrarAdmin(){
-    stringstream out;
-    out << "Nombre: " << nombre << endl;
-    out << "ID: " << ID << endl;
-    out << "Precio: $" << precio << endl;
-    out << "Cantidad: " << cantidad << endl;
-    return out;
-}
-
-stringstream Producto::mostrarCliente(){
-    stringstream out;
-    out << "Nombre: " << nombre << endl;
-    out << "Precio: $" << precio << endl;
-    if (disponible == false){
-        out << "Este producto no está disponible por el momento" << endl;
-    }
-    return out;
 }
 
 #endif
