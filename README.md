@@ -8,6 +8,14 @@ juegos, miniaturas, accesorios y todo lo que la tienda tiene para ofrecer.
 El inventario se maneja a través de la clase Tienda, que tiene acceso a la clase de Producto de la que se heredan las diferentes cosas que maneja la tienda. (Jueos, Miniaturas y Accesorios)
 
 # Diagrama de clases
-<img width="2369" height="1772" alt="TC1030 (1)" src="https://github.com/user-attachments/assets/4da0b4aa-3b1c-40b0-9eab-ed409c6382c6" />
+<img width="3138" height="1491" alt="TC1030 (2)" src="https://github.com/user-attachments/assets/d6ff03a3-1edb-4ce2-ae64-14c242c17223" />
 
 # Funcionalidad
+El programa emula una Tienda en línea. Se puede acceder como Administrador o como Cliente.
+Para acceder como Administrador es necesario contar con un registro previo de tu usuario y contraseña.
+Los clientes pueden iniciar sesión para registrar sus compras en su cuenta, o pasar a la tienda como invitados.
+
+Los administradores pueden:
+
+
+Los clientes pueden:
