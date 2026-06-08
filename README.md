@@ -2,10 +2,10 @@
 
 # Contexto
 Una tienda de juegos de mesa tiene complicaciones para mostrar todo su catálogo cuando los clientes preguntan por los artículos en venta.
-Por lo que deciden crear un sistema de inventario que se actualice en tiempo real para manejar sus artículos y que los clientes puedan ver y apartar 
+Por lo que deciden crear una tienda en línea que se actualice en tiempo real para manejar sus artículos y que los clientes puedan ver y apartar 
 juegos, miniaturas, accesorios y todo lo que la tienda tiene para ofrecer.
 
-El inventario se maneja a través de la clase Tienda, que tiene acceso a la clase de Producto de la que se heredan las diferentes cosas que maneja la tienda. (Jueos, Miniaturas y Accesorios)
+El inventario se maneja a través de la clase Tienda, que tiene acceso a la clase de Producto de la que se heredan las diferentes cosas que maneja la tienda. (Jueos, Miniaturas y Accesorios). Además los clientes pueden registrarse y tener un conteo de compras que después podría ser usada para programas de lealtad/beneficios.
 
 # Diagrama de clases
 <img width="3138" height="1491" alt="TC1030 (2)" src="https://github.com/user-attachments/assets/d6ff03a3-1edb-4ce2-ae64-14c242c17223" />
