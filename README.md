@@ -16,6 +16,13 @@ Para acceder como Administrador es necesario contar con un registro previo de tu
 Los clientes pueden iniciar sesión para registrar sus compras en su cuenta, o pasar a la tienda como invitados.
 
 Los administradores pueden:
+* Consultar el inventario
+* Agregar y retirar produtos del inventario
+* Registrar administradores y clientes
+* Consultar listas de administradores y clientes
 
 
 Los clientes pueden:
+* Definir su presupuesto
+* Ver el catálogo de productos
+* Comprar los productos disponibles
