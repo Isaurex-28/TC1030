@@ -162,7 +162,7 @@ void menuAdmin(Tienda& t){
         bool admin_menu = true;
         while(admin_menu){
             cout << endl << "Que deseas hacer?" << endl;
-            cout << "1.- Ver inventario de productos" << endl;
+            cout << "1.- Ver fondos e inventario de productos" << endl;
             cout << "2.- Agregar producto al inventario" << endl;
             cout << "3.- Retirar producto del invetario" << endl;
             cout << "4.- Registrar Administrador" << endl;
