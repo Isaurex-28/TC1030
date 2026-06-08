@@ -174,6 +174,7 @@ void menuAdmin(Tienda& t){
             cin.ignore();
             switch(admin_choice){
                 case 1:{
+                    cout << "Fondos: $" << t.getFondos() << endl;
                     cout << endl << t.muestraInventarioAdmin().str();
                     break;
                 }
