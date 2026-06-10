@@ -162,7 +162,7 @@ void menuAdmin(Tienda& t){
         bool admin_menu = true;
         while(admin_menu){
             cout << endl << "Que deseas hacer?" << endl;
-            cout << "1.- Ver fondos e inventario de productos" << endl;
+            cout << "1.- Ver inventario de productos" << endl;
             cout << "2.- Agregar producto al inventario" << endl;
             cout << "3.- Retirar producto del invetario" << endl;
             cout << "4.- Registrar Administrador" << endl;
@@ -191,18 +191,23 @@ void menuAdmin(Tienda& t){
                     break;
                 }
                 case 3:{
-                    bool more = true;
-                    while(more){
-                        string id;
-                        cout << endl << t.muestraInventarioAdmin().str();
-                        cout << "Que producto deseas retirar?" << endl;
-                        cout << "ID: "; getline(cin, id);
-                        t.retiraProducto(id);
-                        cout << endl << "Deseas retirar otro producto?" << endl;
-                        cout << "0.- No" << endl;
-                        cout << "1.- Si" << endl;
-                        cout << "Escribe el numero: "; cin >> more;
-                        cin.ignore();                                      
+                    if(t.getNumProductos() > 0){
+                        bool more = true;
+                        while(more){
+                            string id;
+                            cout << endl << t.muestraInventarioAdmin().str();
+                            cout << "Que producto deseas retirar?" << endl;
+                            cout << "ID: "; getline(cin, id);
+                            t.retiraProducto(id);
+                            cout << endl << "Deseas retirar otro producto?" << endl;
+                            cout << "0.- No" << endl;
+                            cout << "1.- Si" << endl;
+                            cout << "Escribe el numero: "; cin >> more;
+                            cin.ignore();                                      
+                        }
+                    }
+                    else{
+                        cout << endl << "No hay productos por retirar" << endl;
                     }
                     break;                                
                 }
@@ -287,15 +292,21 @@ void menuCliente(Tienda& t){
         cout << "Escribe el numero: "; cin >> client_choice;
         switch(client_choice){
             case 1:{
+                cout << endl << "Fondos: $" << t.getFondos() << endl;
                 cout << t.muestraInventarioCliente().str() << endl;
                 break;
             }
             case 2:{
-                bool compra = t.compraProducto(presupuesto,t);
-                if(compra && cliente_login){
-                    activo->registrarCompra();
-                    cout << "Compras realizadas: " 
-                    << activo->getNumCompras() << endl;
+                if(t.getNumProductos() > 0){
+                    bool compra = t.compraProducto(presupuesto,t);
+                    if(compra && cliente_login){
+                        activo->registrarCompra();
+                        cout << "Compras realizadas: " 
+                        << activo->getNumCompras() << endl;
+                    }
+                }
+                else{
+                    cout << endl << "No hay productos por comprar" << endl;
                 }
                 break;
             }
