@@ -99,7 +99,7 @@ void registrarAdministrador(Tienda& t){
 void registrarCliente(Tienda& t){
     
     if(t.getNumClientes() >= 100){
-        cout << endl << "No puedes registrar mas administradores" << endl;
+        cout << endl << "No puedes registrar mas clientes" << endl;
         return;
     }
 
