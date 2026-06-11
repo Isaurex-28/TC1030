@@ -1,3 +1,14 @@
+/*
+ * Proyecto TC1030 - clase Tienda
+ * Isauro Alejandro Garza Elizondo - A01715088
+ *
+ * Clase Tienda, que es el controlador principal del sistema.
+ * Gestiona el inventario de hasta 100 productos, la lista de administradores
+ * y la lista de clientes. 
+ * En esta clase se gestiona, agregar, retirar y comprar productos, 
+ * y visualización de datos.
+ */
+
 #ifndef TIENDA_H
 #define TIENDA_H
 
@@ -16,18 +27,23 @@ using namespace std;
 
 class Tienda{
     private:
+        // Nombre de la tienda
         string nombre;
+        // Fondos de la tienda
         float fondos;
-        
+        // Arreglo de productos
         Producto* productos[100];
+        // Contador de productos
         int numProductos;
-
+        // Arreglo de administadores
         Administrador* admins[10];
+        // Contador de administradores
         int numAdmins;
-
+        // Arreglo de clientes
         Cliente* clientes[100];
+        // Contador de clientes
         int numClientes;
-
+        // Booleano que indica si hay un administrador activo
         bool admin;
 
     public: 
@@ -67,44 +83,103 @@ class Tienda{
         bool compraProducto(float, Tienda&);
     };
 
+/**
+ * Constructor con parámetros
+ *
+ * Crea una tienda con nombre y fondos iniciales. Los contadores
+ * de productos, admins y clientes inician en 0.
+ *
+ * @param string nombre de la tienda, float fondos iniciales
+ */
 Tienda::Tienda(string nom, float fon):numProductos(0),
                 numAdmins(0),numClientes(0),admin(false){
     nombre = nom;
     fondos = fon;
 }
 
+/** 
+ * setNombre asigna el nombre de la tienda 
+ * @param string nombre de la tienda
+ * @return 
+ */
 void Tienda::setNombre(string nom){
     nombre = nom;
 }
 
+/** 
+ * getNombre regresa el nombre de la tienda 
+ * @param 
+ * @return string nombre de la tienda
+ */
 string Tienda::getNombre(){
     return nombre;
 }
 
+/** 
+ * getFombre regresa los fondos de la tienda 
+ * @param 
+ * @return float fondos de la tienda
+ */
 float Tienda::getFondos(){
     return fondos;
 }
 
+/** 
+ * setFombre asigna los fondos de la tienda 
+ * @param float fondos
+ * @return 
+ */
 void Tienda::setFondos(float fon){
     fondos = fon;
 }
 
+/** 
+ * getNumProductos regresa la cantidad actual de productos en 
+ * el inventario
+ * @param 
+ * @return int con la cantidad de productos
+ */
 int Tienda::getNumProductos(){
     return numProductos;
 }
 
+/** 
+ * getNumAdmins regresa la cantidad de administradores
+ * registrados
+ * @param 
+ * @return int con la cantidad de administradores
+ */
 int Tienda::getNumAdmins(){
     return numAdmins;
 }
 
+/** 
+ * getNumClientes regresa la cantidad de clientes
+ * registrados
+ * @param 
+ * @return int con la cantidad de clientes
+ */
 int Tienda::getNumClientes(){
     return numClientes;
 }
 
+/** 
+ * getAdmin regresa true o false dependiendo de si
+ * hay un administrador activo
+ * @param 
+ * @return bool si hay administradores
+ */
 bool Tienda::getAdmin(){
     return admin;
 }
 
+ /**
+ * iniciaSesion verifica los usuarios y contraseñas de
+ * los administradores registrados. 
+ * Si coinciden, activa la sesión de admin.
+ * @param string usuario, string contraseña
+ * @return bool true si las credenciales son correctas
+ */
 bool Tienda::iniciaSesion(string usr, string psw){
     for(int i = 0; i < numAdmins; i++){
         if(admins[i]->verificar(usr, psw)){
@@ -119,6 +194,13 @@ bool Tienda::iniciaSesion(string usr, string psw){
     return false;
 }
 
+/**
+ * muestraInventarioAdmin devuelve el inventario completo con datos
+ * de administrador (ID, precio, cantidad) para todos los productos.
+ *
+ * @param
+ * @return stringstream con la lista numerada de productos
+ */
 stringstream Tienda::muestraInventarioAdmin(){
     stringstream aux;
     if(numProductos > 0){
@@ -132,6 +214,13 @@ stringstream Tienda::muestraInventarioAdmin(){
     return aux;
 }
 
+/**
+ * muestraInventarioCliente devuelve el inventario con los datos
+ * visibles para clientes para todos los productos.
+ *
+ * @param
+ * @return stringstream con la lista numerada de productos
+ */
 stringstream Tienda::muestraInventarioCliente(){
     stringstream aux;
     if(numProductos > 0){
@@ -145,6 +234,12 @@ stringstream Tienda::muestraInventarioCliente(){
     return aux;
 }
 
+/**
+ * muestraListaAdmins devuelve la lista de administradores registrados.
+ *
+ * @param
+ * @return stringstream con la información de cada administrador
+ */
 stringstream Tienda::muestraListaAdmins(){
     stringstream aux;
     for(int i = 0; i < numAdmins; i++){
@@ -153,6 +248,12 @@ stringstream Tienda::muestraListaAdmins(){
     return aux;    
 }
 
+/**
+ * muestraListaClientes devuelve la lista de clientes registrados.
+ *
+ * @param
+ * @return stringstream con la información de cada cliente.
+ */
 stringstream Tienda::muestraListaClientes(){
     stringstream aux;
     for(int i = 0; i < numClientes; i++){
@@ -161,7 +262,15 @@ stringstream Tienda::muestraListaClientes(){
     return aux;    
 }
 
-
+/**
+ * agregaProducto crea y agrega un Juego al inventario.
+ *
+ * @param string nombre del juego, string ID, float precio
+ * @param int cantidad en inventario, bool disponibilidad
+ * @param string tipo de juego, int mínimo de jugadores
+ * @param int máximo de jugadores, string marca
+ * @return
+ */
 void Tienda::agregaProducto(string nom, string id, float pri, int can, 
                 bool dis, string tip,int min, int max, 
                 string mar){
@@ -174,6 +283,14 @@ void Tienda::agregaProducto(string nom, string id, float pri, int can,
     }
 }
 
+/**
+ * agregaProducto crea y agrega una Miniatura al inventario.
+ *
+ * @param string nombre de la miniatura, string ID, float precio
+ * @param int cantidad en inventario, bool disponibilidad
+ * @param float tamaño, string personaje, string material
+ * @return
+ */
 void Tienda::agregaProducto(string nom, string id, float pri, int can, 
                 bool dis, float tam,string per,string mat){
     if(numProductos<99){
@@ -185,6 +302,14 @@ void Tienda::agregaProducto(string nom, string id, float pri, int can,
     }
 }
 
+/**
+ * agregaProducto crea y agrega un Accesorio al inventario.
+ *
+ * @param string nombre de la miniatura, string ID, float precio
+ * @param int cantidad en inventario, bool disponibilidad
+ * @param string utilidad, string color, bool se vende en paquete
+ * @return
+ */
 void Tienda::agregaProducto(string nom, string id, float pri, int can, 
                 bool dis, string uti,string col,bool paq){
     if(numProductos<99){
@@ -196,6 +321,12 @@ void Tienda::agregaProducto(string nom, string id, float pri, int can,
     }
 }
 
+/**
+ * agregaAdmin agrega un administrador ya creado al arreglo de admins.
+ *
+ * @param Administrador* a puntero al administrador a agregar
+ * @return
+ */
 void Tienda::agregaAdmin(Administrador* a){
     if(numAdmins < 10){
         admins[numAdmins] = a;
@@ -203,6 +334,12 @@ void Tienda::agregaAdmin(Administrador* a){
     }
 }
 
+/**
+ * agregaCliente agrega un cliente ya creado al arreglo de clientes.
+ *
+ * @param Cliente* c puntero al cliente a agregar
+ * @return
+ */
 void Tienda::agregaCliente(Cliente* c){
     if(numClientes < 100){
         clientes[numClientes] = c;
@@ -210,6 +347,12 @@ void Tienda::agregaCliente(Cliente* c){
     }
 }
 
+/**
+ * buscaCliente busca un cliente por su ID en el arreglo de clientes.
+ *
+ * @param string id del cliente a buscar
+ * @return Cliente* puntero al cliente encontrado, o nullptr si no existe
+ */
 Cliente* Tienda::buscaCliente(string id){
     for(int i = 0; i < numClientes; i++){
         if(clientes[i]->getID() == id){
@@ -219,19 +362,36 @@ Cliente* Tienda::buscaCliente(string id){
     return nullptr;
 }
 
+/**
+ * retiraProducto busca un producto y lo elimina del inventario 
+ * Desplaza los elementos para mantener el arreglo sin huecos.
+ *
+ * @param string id del producto a retirar
+ * @return
+ */
 void Tienda::retiraProducto(string id){
     for(int i = 0; i < numProductos; i++){
         if(productos[i]->getId() == id){
+        // Desplaza todos los elementos siguientes una posición hacia atrás
             for(int j = i; j < numProductos - 1; j++){
                 productos[j] = productos[j + 1];
             }
-            productos[numProductos - 1] = nullptr; 
-            numProductos--;                         
+            productos[numProductos - 1] = nullptr; // Vacía el último espacio
+            numProductos--; // Reduce la cantidad de productos en inventario                         
             break;                                  
         }
     }
 }
 
+/**
+ * compraProducto permite al cliente comprar un producto
+ * del inventario. 
+ * Se verifica disponibilidad, presupuesto y cantidad en el inventario.
+ * Si la compra es exitosa, descuenta una unidad y suma el precio a los fondos.
+ *
+ * @param float presupuesto del cliente Tienda& t referencia a la tienda
+ * @return bool true si la compra se realizó con éxito
+ */
 bool Tienda::compraProducto(float ppto, Tienda& t){
     int prod;
     cout << endl << muestraInventarioCliente().str();
@@ -239,6 +399,7 @@ bool Tienda::compraProducto(float ppto, Tienda& t){
     for(int i = 0; i < numProductos; i++){
         if(i + 1 == prod){
             if(productos[i]->getDisponible()){
+                // Avisa si el producto supera el presupuesto del cliente
                 if(productos[i]->getPrecio() > ppto){
                     bool buy;
                     cout << "El producto sale de presupuesto" << endl;
@@ -248,7 +409,7 @@ bool Tienda::compraProducto(float ppto, Tienda& t){
                      return false;
                     }
                 }
-
+                // Verifica que haya unidades disponibles
                 if(productos[i]->getCantidad() == 0){
                     productos[i]->setDisponible(false);
                     cout << "Producto agotado" << endl;
