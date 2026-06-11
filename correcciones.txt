@@ -1,0 +1,30 @@
+
+
+============= Corrección 1 ===========
+Subcompetencia: Identifico los casos que harían que el proyecto deje de funcionar
+Error original: Faltaban los casos donde el proyecto dejaría de funcionar. 	
+Cambio realizado: Agregué al README los casos donde el código se cicla y/o deja de funcionar
+
+============= Corrección 2 ===========
+Subcompetencia: Genero un diagrama de clases UML correcto y y explico su relación con el problema de forma clara
+Error original: El diagrama de clases UML carecía de multiplicidad (agregar la relación que tiene cada diagrama (1 a N, N a N))
+Cambio realizado: En el diagrama se especifica directamente que en cada tienda hay 10 administradores, 100 clientes y 100 productos
+
+============ Corrección 3 =============
+Subcompetencia: componente: Se implementa de manera correcta el concepto de Polimorfismo
+Error original: Mi programa no contaba con una función main donde se probaran los casos del polimorfismo
+Cambio realizado: Cree el archivo main.cpp donde el usuario puede interactuar directamente con las clases abstractas Producto y Cliente 
+
+============ Corrección 4 ===========
+Subcompetencia: Incluye documentación útil en el repositorio del proyecto
+Error original: El readme carecia de un contexto integral, así como de instrucciones de compilación, consideraciones y correcciones.
+Cambio realizado: Se complementa el contexto en el README, se agregan las instrucciones, se crea el archivo correcciones.txt
+
+============ Corrección 5 ===========
+Subcompetencia: 
+Error original: El programa "permitía" retirar y comprar productos aunque no los hubiera.
+Cambio realizado: Se agregan condicionales para que solo se puedan retirar y comprar productos cuando los hay en inventario.
+
+               
+
+Lineas de código donde se ve la corrección n a n
