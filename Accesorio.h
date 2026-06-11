@@ -116,7 +116,7 @@ bool Accesorio::getPaquete(){
  * mostrarAdmin utiliza polimorfismo para sobreescribir 
  * la funcion de la clase abstracta Producto.
  * Devuelve los datos completos del accesorio para el administrador,
- * (ID, utilidad, color, precio, cantidad en el inventario y si se vende en paquete).
+ * (nombre, ID, utilidad, color, precio, cantidad en el inventario y si se vende en paquete).
  *
  * @param
  * @return stringstream con la información del accesorio
