@@ -31,3 +31,14 @@ Los clientes pueden:
 # Casos donde no funciona
 Al ingresar un tipo de dato que no sea entero en cualquiera de los menús
 Al ingresar un número diferente a 0 o 1 en las preguntas de Sí y No
+
+# Correcciones 
+Consultar el archivo correcciones.txt
+
+# Instrucciones
+compilar con: `g++ main.cpp -o main`
+
+correr en linux: `/main.out`
+
+correr en windows: `.\‎/main.exe`
+
