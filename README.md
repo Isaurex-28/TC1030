@@ -29,8 +29,8 @@ Los clientes pueden:
 * Comprar los productos disponibles
 
 # Casos donde no funciona
-Al ingresar un tipo de dato que no sea entero en cualquiera de los menús
-Al ingresar un número diferente a 0 o 1 en las preguntas de Sí y No
+* Al ingresar un tipo de dato que no sea entero en cualquiera de los menús
+* Al ingresar un número diferente a 0 o 1 en las preguntas de Sí y No
 
 # Correcciones 
 Consultar el archivo correcciones.txt
